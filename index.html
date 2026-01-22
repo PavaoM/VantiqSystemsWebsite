@@ -194,6 +194,25 @@ transform:none
 .hero-inner{grid-template-columns:1fr}
 .hero h1{font-size:44px}
 }
+
+.booking-wrap{
+  max-width:880px;
+  margin:80px auto 0;
+  padding:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  border:1px solid var(--border);
+  border-radius:28px;
+  backdrop-filter:blur(14px);
+}
+
+.calendly-inline-widget{
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+}
+
+
+
 </style>
 </head>
 
@@ -214,12 +233,18 @@ transform:none
 </nav>
 
 <div class="sticky">
-  <a href="#cta" class="btn"
+<div class="sticky">
+  <a href="javascript:void(0)"
+     class="btn"
+     onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'center' });"
      data-hr="📞 Zakaži poziv"
      data-en="📞 Book a call"
      data-de="📞 Gespräch vereinbaren">
      📞 Zakaži poziv
   </a>
+</div>
+
+
 </div>
 
 <!-- HERO -->
@@ -241,12 +266,16 @@ Većina firmi gubi leadove zbog propuštenih poziva i sporih odgovora. Mi gradim
 </p>
 
 <br><br>
-<a href="#cta" class="btn"
-data-hr="🚀 Zakaži besplatan poziv"
-data-en="🚀 Schedule a free call"
-data-de="🚀 Kostenloses Gespräch vereinbaren">
-🚀 Zakaži besplatan poziv
+<a href="javascript:void(0)"
+   class="btn"
+   onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'center' });"
+   data-hr="🚀 Zakaži besplatan poziv"
+   data-en="🚀 Schedule a free call"
+   data-de="🚀 Kostenloses Gespräch vereinbaren">
+   🚀 Zakaži besplatan poziv
 </a>
+
+
 </div>
 
 <div class="ai-panel">
@@ -355,30 +384,44 @@ Skripte, ton komunikacije i logika prilagođeni su vašem poslovanju.
 
 <!-- CTA -->
 <section id="cta">
-<div class="container fade cta">
-<h2 class="title"
-data-hr="Spremni vidjeti kako ovo radi u praksi?"
-data-en="Ready to see how this works in practice?"
-data-de="Bereit zu sehen, wie das in der Praxis funktioniert?">
-Spremni vidjeti kako ovo radi u praksi?
-</h2>
+  <div class="container fade cta">
 
-<p class="sub"
-data-hr="Zakažite besplatan strateški poziv i saznajte može li ovaj sustav povećati vaš prihod."
-data-en="Schedule a free strategy call and see if this system can increase your revenue."
-data-de="Vereinbaren Sie ein kostenloses Strategiegespräch und erfahren Sie, ob dieses System Ihren Umsatz steigern kann.">
-Zakažite besplatan strateški poziv i saznajte može li ovaj sustav povećati vaš prihod.
-</p>
+    <h2 class="title"
+      data-hr="Spremni vidjeti kako ovo radi u praksi?"
+      data-en="Ready to see how this works in practice?"
+      data-de="Bereit zu sehen, wie das in der Praxis funktioniert?">
+      Spremni vidjeti kako ovo radi u praksi?
+    </h2>
 
-<br><br>
-<a href="#" class="btn"
-data-hr="📅 Zakaži poziv"
-data-en="📅 Book a call"
-data-de="📅 Gespräch vereinbaren">
-📅 Zakaži poziv
-</a>
-</div>
+    <p class="sub"
+      data-hr="Zakažite besplatan strateški poziv i odmah rezervirajte termin koji vam odgovara."
+      data-en="Schedule a free strategy call and instantly reserve a time that works for you."
+      data-de="Vereinbaren Sie ein kostenloses Strategiegespräch und reservieren Sie sofort einen passenden Termin.">
+      Zakažite besplatan strateški poziv i odmah rezervirajte termin koji vam odgovara.
+    </p>
+
+    <!-- CALENDLY OVDJE -->
+    <div id="booking" class="booking-wrap">
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/margeticpavao06/30min"
+           style="height:640px;">
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <br><br>
+    <a href="javascript:void(0)"
+       class="btn"
+       onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'center' });"
+       data-hr="📅 Zakaži poziv"
+       data-en="📅 Book a call"
+       data-de="📅 Gespräch vereinbaren">
+       📅 Zakaži poziv
+    </a>
+
+  </div>
 </section>
+
 
 <footer>
 © 2026 Vantiq Systems
@@ -411,6 +454,8 @@ buttons.hr.onclick=()=>setLang("hr");
 buttons.en.onclick=()=>setLang("en");
 buttons.de.onclick=()=>setLang("de");
 </script>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
 </body>
 </html>
