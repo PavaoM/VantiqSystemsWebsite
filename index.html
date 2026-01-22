@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vantiq Systems – AI Automation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#0b0f14;
+--card:#111827;
+--border:rgba(255,255,255,.08);
+--text:#e5e7eb;
+--muted:#9ca3af;
+--accent:#38bdf8;
+--accent2:#22d3ee;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Inter,sans-serif;
+background:
+radial-gradient(900px 500px at 70% -10%,rgba(56,189,248,.25),transparent),
+radial-gradient(700px 400px at 20% 10%,rgba(34,211,238,.18),transparent),
+var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* BACKGROUND SHAPES */
+.bg-shape{
+position:absolute;
+border-radius:50%;
+filter:blur(140px);
+opacity:.25;
+animation:float 14s ease-in-out infinite;
+z-index:-1;
+}
+.shape1{width:420px;height:420px;background:#38bdf8;top:10%;left:-120px}
+.shape2{width:320px;height:320px;background:#22d3ee;bottom:10%;right:-120px;animation-delay:4s}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-50px)}
+}
+
+/* NAV */
+nav{
+position:fixed;top:0;width:100%;z-index:100;
+background:rgba(11,15,20,.75);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(--border)
+}
+.nav-inner{
+max-width:1200px;margin:auto;
+padding:18px 24px;
+display:flex;justify-content:space-between;align-items:center
+}
+.logo{font-weight:900;letter-spacing:1px}
+.lang img{
+width:26px;margin-left:12px;cursor:pointer;opacity:.35;transition:.3s
+}
+.lang img.active,.lang img:hover{opacity:1}
+
+/* BUTTON */
+.btn{
+display:inline-flex;align-items:center;gap:10px;
+padding:18px 38px;border-radius:18px;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:#000;font-weight:800;text-decoration:none;
+transition:.35s;
+position:relative;
+}
+.btn::after{
+content:"";
+position:absolute;inset:0;
+border-radius:inherit;
+box-shadow:0 0 70px rgba(56,189,248,.6);
+opacity:0;transition:.35s
+}
+.btn:hover::after{opacity:1}
+.btn:hover{transform:translateY(-5px)}
+
+/* STICKY CTA */
+.sticky{
+position:fixed;bottom:24px;right:24px;z-index:90
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+padding:160px 24px 120px;
+display:flex;align-items:center;
+}
+.hero-inner{
+max-width:1200px;margin:auto;
+display:grid;grid-template-columns:1.1fr .9fr;gap:90px
+}
+.hero h1{
+font-size:58px;font-weight:900;line-height:1.05
+}
+.hero h1 span{
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent
+}
+.hero p{
+margin-top:28px;font-size:20px;color:var(--muted);max-width:580px
+}
+
+/* AI PANEL */
+.ai-panel{
+background:linear-gradient(145deg,rgba(56,189,248,.25),rgba(34,211,238,.05));
+border:1px solid var(--border);
+border-radius:34px;padding:44px;
+animation:float 12s ease-in-out infinite;
+}
+.ai-item{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:18px 20px;
+margin-bottom:14px;
+font-weight:600;
+transition:.3s
+}
+.ai-item:hover{transform:translateX(8px)}
+
+/* SECTIONS */
+section{padding:130px 24px}
+.container{max-width:1100px;margin:auto}
+.title{
+font-size:46px;font-weight:800;text-align:center
+}
+.sub{
+margin-top:20px;color:var(--muted);
+text-align:center;max-width:860px;margin-inline:auto;
+line-height:1.8
+}
+
+/* GRID */
+.grid{
+margin-top:90px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px
+}
+.card{
+background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+border:1px solid var(--border);
+border-radius:30px;
+padding:46px;
+line-height:1.8;
+transition:.45s
+}
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 60px 160px rgba(56,189,248,.25)
+}
+.icon{font-size:36px;margin-bottom:22px}
+
+/* CTA SECTION */
+.cta{
+text-align:center
+}
+.cta .btn{
+margin-inline:auto;
+font-size:20px;
+padding:22px 46px;
+}
+
+/* FOOTER */
+footer{
+border-top:1px solid var(--border);
+padding:70px 24px;
+text-align:center;
+color:var(--muted)
+}
+
+/* ANIM */
+.fade{
+opacity:0;
+transform:translateY(70px);
+transition:1.2s
+}
+.fade.show{
+opacity:1;
+transform:none
+}
+
+@media(max-width:900px){
+.hero-inner{grid-template-columns:1fr}
+.hero h1{font-size:44px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">VANTIQ SYSTEMS</div>
+    <div class="lang">
+      <img src="https://flagcdn.com/w40/hr.png" id="hr" class="active">
+      <img src="https://flagcdn.com/w40/gb.png" id="en">
+      <img src="https://flagcdn.com/w40/de.png" id="de">
+    </div>
+  </div>
+</nav>
+
+<div class="sticky">
+  <a href="#cta" class="btn"
+     data-hr="📞 Zakaži poziv"
+     data-en="📞 Book a call"
+     data-de="📞 Gespräch vereinbaren">
+     📞 Zakaži poziv
+  </a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner fade">
+<div>
+<h1
+data-hr="AI sustavi koji <span>pretvaraju pozive u klijente</span>"
+data-en="AI systems that <span>turn calls into clients</span>"
+data-de="KI-Systeme, die <span>Anrufe in Kunden verwandeln</span>">
+AI sustavi koji <span>pretvaraju pozive u klijente</span>
+</h1>
+
+<p
+data-hr="Većina firmi gubi leadove zbog propuštenih poziva i sporih odgovora. Mi gradimo AI sustave koji se javljaju 24/7, vode razgovor i zakazuju termine."
+data-en="Most businesses lose leads due to missed calls and slow responses. We build AI systems that answer 24/7, handle conversations and book appointments."
+data-de="Die meisten Unternehmen verlieren Leads durch verpasste Anrufe und langsame Reaktionen. Wir entwickeln KI-Systeme, die 24/7 Anrufe annehmen, Gespräche führen und Termine buchen.">
+Većina firmi gubi leadove zbog propuštenih poziva i sporih odgovora. Mi gradimo AI sustave koji se javljaju 24/7, vode razgovor i zakazuju termine.
+</p>
+
+<br><br>
+<a href="#cta" class="btn"
+data-hr="🚀 Zakaži besplatan poziv"
+data-en="🚀 Schedule a free call"
+data-de="🚀 Kostenloses Gespräch vereinbaren">
+🚀 Zakaži besplatan poziv
+</a>
+</div>
+
+<div class="ai-panel">
+
+  <div class="ai-item"
+       data-hr="🤖 AI Voice Assistant – 24/7"
+       data-en="🤖 AI Voice Assistant – 24/7"
+       data-de="🤖 KI-Sprachassistent – 24/7">
+       🤖 AI Voice Assistant – 24/7
+  </div>
+
+  <div class="ai-item"
+       data-hr="📞 Pametna kvalifikacija poziva"
+       data-en="📞 Smart call qualification"
+       data-de="📞 Intelligente Anrufqualifizierung">
+       📞 Pametna kvalifikacija poziva
+  </div>
+
+  <div class="ai-item"
+       data-hr="📅 Automatsko zakazivanje termina"
+       data-en="📅 Automatic appointment booking"
+       data-de="📅 Automatische Terminbuchung">
+       📅 Automatsko zakazivanje termina
+  </div>
+
+  <div class="ai-item"
+       data-hr="⚙️ Potpuna prilagodba poslovanju"
+       data-en="⚙️ Fully customized to your business"
+       data-de="⚙️ Vollständig an Ihr Unternehmen angepasst">
+       ⚙️ Potpuna prilagodba poslovanju
+  </div>
+
+</div>
+
+</div>
+</section>
+
+<!-- VALUE -->
+<section>
+<div class="container fade">
+<h2 class="title"
+data-hr="Zašto Vantiq Systems"
+data-en="Why Vantiq Systems"
+data-de="Warum Vantiq Systems">
+Zašto Vantiq Systems
+</h2>
+
+<p class="sub"
+data-hr="Ne prodajemo softver. Dizajniramo AI sustave koji rješavaju konkretne probleme u prodaji, podršci i operacijama."
+data-en="We don’t sell software. We design AI systems that solve real problems in sales, support and operations."
+data-de="Wir verkaufen keine Software. Wir entwickeln KI-Systeme, die konkrete Probleme in Vertrieb, Support und operativen Prozessen lösen.">
+Ne prodajemo softver. Dizajniramo AI sustave koji rješavaju konkretne probleme u prodaji, podršci i operacijama.
+</p>
+
+<div class="grid">
+<div class="card">
+<div class="icon">📞</div>
+<h3
+data-hr="Nijedan poziv se ne gubi"
+data-en="No call is ever missed"
+data-de="Kein Anruf geht verloren">
+Nijedan poziv se ne gubi
+</h3>
+<p
+data-hr="AI se javlja odmah, bez čekanja, i vodi strukturirani razgovor."
+data-en="AI answers instantly, without waiting, and leads a structured conversation."
+data-de="Die KI antwortet sofort, ohne Wartezeit, und führt ein strukturiertes Gespräch.">
+AI se javlja odmah, bez čekanja, i vodi strukturirani razgovor.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📅</div>
+<h3
+data-hr="Više zakazanih termina"
+data-en="More booked appointments"
+data-de="Mehr gebuchte Termine">
+Više zakazanih termina
+</h3>
+<p
+data-hr="Leadovi se pretvaraju u termine dok je interes najveći."
+data-en="Leads turn into appointments while interest is at its peak."
+data-de="Leads werden in Termine umgewandelt, solange das Interesse am höchsten ist.">
+Leadovi se pretvaraju u termine dok je interes najveći.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚙️</div>
+<h3
+data-hr="Prilagođeno vašem brendu"
+data-en="Tailored to your brand"
+data-de="An Ihre Marke angepasst">
+Prilagođeno vašem brendu
+</h3>
+<p
+data-hr="Skripte, ton komunikacije i logika prilagođeni su vašem poslovanju."
+data-en="Scripts, tone of voice and logic are tailored to your business."
+data-de="Skripte, Tonalität und Logik werden individuell an Ihr Unternehmen angepasst.">
+Skripte, ton komunikacije i logika prilagođeni su vašem poslovanju.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+<div class="container fade cta">
+<h2 class="title"
+data-hr="Spremni vidjeti kako ovo radi u praksi?"
+data-en="Ready to see how this works in practice?"
+data-de="Bereit zu sehen, wie das in der Praxis funktioniert?">
+Spremni vidjeti kako ovo radi u praksi?
+</h2>
+
+<p class="sub"
+data-hr="Zakažite besplatan strateški poziv i saznajte može li ovaj sustav povećati vaš prihod."
+data-en="Schedule a free strategy call and see if this system can increase your revenue."
+data-de="Vereinbaren Sie ein kostenloses Strategiegespräch und erfahren Sie, ob dieses System Ihren Umsatz steigern kann.">
+Zakažite besplatan strateški poziv i saznajte može li ovaj sustav povećati vaš prihod.
+</p>
+
+<br><br>
+<a href="#" class="btn"
+data-hr="📅 Zakaži poziv"
+data-en="📅 Book a call"
+data-de="📅 Gespräch vereinbaren">
+📅 Zakaži poziv
+</a>
+</div>
+</section>
+
+<footer>
+© 2026 Vantiq Systems
+</footer>
+
+<script>
+// fade-in animation
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>e.isIntersecting&&e.target.classList.add("show"))
+},{threshold:.15});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+
+// language switch
+const buttons={
+hr:document.getElementById("hr"),
+en:document.getElementById("en"),
+de:document.getElementById("de")
+};
+
+function setLang(lang){
+document.querySelectorAll("[data-hr]").forEach(el=>{
+el.innerHTML=el.getAttribute(`data-${lang}`);
+});
+Object.keys(buttons).forEach(k=>{
+buttons[k].classList.toggle("active",k===lang);
+});
+}
+
+buttons.hr.onclick=()=>setLang("hr");
+buttons.en.onclick=()=>setLang("en");
+buttons.de.onclick=()=>setLang("de");
+</script>
+
+</body>
+</html>
